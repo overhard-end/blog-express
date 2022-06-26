@@ -8,6 +8,7 @@ const errorMiddleware = require('./middlewares/error-middleware');
 const app = express();
 const fileupload = require('express-fileupload');
 const { config } = require('dotenv');
+
 const PORT = process.env.PORT || config.get('serverPort');
 app.use(express.json());
 app.use(express.static('uploads'));

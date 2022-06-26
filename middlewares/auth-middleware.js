@@ -18,6 +18,6 @@ module.exports = function (req, res, next) {
     req.user = userData;
     next();
   } catch (e) {
-    return next(ApiError.UnauthorizedError('Вы не ав'));
+    return next(ApiError.BadRequest('Что то пошло не так!!!', e));
   }
 };
