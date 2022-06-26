@@ -7,7 +7,8 @@ const router = require('./router/index');
 const errorMiddleware = require('./middlewares/error-middleware');
 const app = express();
 const fileupload = require('express-fileupload');
-
+const { config } = require('dotenv');
+const PORT = process.env.PORT || config.get('serverPort');
 app.use(express.json());
 app.use(express.static('uploads'));
 app.use(fileupload({}));
@@ -30,7 +31,7 @@ const start = async () => {
       useUnifiedTopology: true,
     });
 
-    app.listen(5000, () => console.log(' server is runned'));
+    app.listen(PORT, () => console.log(' Server is starting...'));
   } catch (e) {
     console.log(e);
   }
